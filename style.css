@@ -1,0 +1,89 @@
+.row {
+    display: flex;
+}
+
+#input {
+    justify-content: flex-end;
+    align-items: flex-end;
+    display: flex;
+}
+button{
+    
+    background-color: red;
+    border: 2px solid black;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.back {
+    font-family: cursive;
+    background-color: #bd2121c2;
+    grid-column-gap: 50px;
+    grid-template-rows: auto auto auto;
+    grid-template-columns: auto;    
+    display:grid;
+}
+.back h2, p{
+    padding:30px;
+}
+.back h2{
+    font-style: italic;
+    font-weight: 800;
+}
+
+.flip-container {
+    perspective: 1500px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    display: flex;
+}
+
+/* flip the pane when hovered */
+.flipper:hover,
+.front.hover .back {
+    transform: rotateY(180deg);
+}
+
+.flipper,
+.front,
+.back {
+    border: 2px solid black;
+    width: 369px;
+    height: 500px;
+    background-size: cover;
+}
+
+/* flip speed goes here */
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+/* hide back of pane during swap */
+.front,
+.back {
+    backface-visibility: hidden;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+    z-index: 2;
+    /* for firefox 31 */
+    transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.back {
+    transform: rotateY(180deg);
+}
